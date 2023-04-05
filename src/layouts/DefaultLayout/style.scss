@@ -1,0 +1,228 @@
+:root {
+    --font-family: 'Segoe UI';
+    --text-color: black;
+    --header-height: 10rem;
+    --footer-height: 50rem;
+    --page-config: 0rem;
+    --sidebar-width: 30rem;
+    --sidebar-height: calc(100vh - var(--header-height));
+    --sidebarContent-height: calc(var(--sidebar-height) - var(--collapseBtn-height));
+    --collapseBtn-height: 5rem;
+    --topCollapseBtn-transition: -10rem;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    color: var(--text-color);
+    margin: var(--page-config);
+
+    // -ms-overflow-style: none;
+    // scrollbar-width: none;
+    &::-webkit-scrollbar {
+        // display: none;
+    }
+
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+header {
+    background-color: #ccc;
+    border: 1px solid black;
+    height: var(--header-height);
+
+    position: fixed;
+    top: 0;
+    right: var(--page-config);
+    left: var(--page-config);
+    z-index: 9999;
+}
+
+main {
+    height: 200rem;
+    /* mock */
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-top: var(--header-height);
+
+    position: relative;
+
+    .sidebar {
+        background-color: #ddd;
+        border-right: 1px solid black;
+        width: var(--sidebar-width);
+        height: var(--sidebar-height);
+
+        position: fixed;
+        top: var(--header-height);
+        bottom: 0;
+
+        transition: transform ease-out 1s;
+        transform: translateX(0);
+
+        .sidebar-content {
+            position: relative;
+            height: var(--sidebarContent-height);
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 10px;
+                background-color: #bbb;
+            }
+
+        }
+
+        .collapseBtn {
+            position: relative;
+
+            .bottom_collapse_btn {
+                background: none;
+                color: inherit;
+                border: none;
+                padding: 0;
+                font: inherit;
+                cursor: pointer;
+                outline: inherit;
+
+                border-top: 1px solid black;
+                position: absolute;
+                width: 100%;
+                height: var(--collapseBtn-height);
+                top: calc(var(--sidebar-height) - var(--sidebarContent-height) - var(--collapseBtn-height));
+            }
+        }
+    }
+
+    .close {
+        border-right: 1px solid black;
+        transform: translateX(calc(-100% - var(--page-config)));
+    }
+
+    .open {
+        transform: translateX(0);
+        border-right: 1px solid black;
+    }
+
+    .content {
+        background-color: #eee;
+        height: 100%;
+        transition: all ease-out 1s;
+
+        .container {
+            margin: 0 5rem 0;
+            padding: 2rem 0;
+        }
+    }
+
+    .full {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .collapse {
+        width: calc(100% - var(--sidebar-width));
+        margin-left: var(--sidebar-width);
+    }
+}
+
+footer {
+    border: 1px solid black;
+    height: var(--footer-height);
+}
+
+
+.top_collapse_btn {
+    position: fixed;
+    top: calc(var(--header-height) + 1rem);
+    transform: translateX(var(--topCollapseBtn-transition));
+    opacity: 0.3;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.in {
+    transform: translateX(var(--topCollapseBtn-transition));
+}
+
+.out {
+    transform: translateX(0);
+}
+
+
+$ease: cubic-bezier(.2, 1, .3, 1);
+
+button,
+div {
+    transition: transform ease-out 1s;
+
+    svg {
+        width: 30px;
+        height: auto;
+        margin: 0 2rem;
+        cursor: pointer;
+        overflow: visible;
+
+        polygon,
+        path {
+            transition: all 0.5s $ease;
+        }
+
+        &:hover polygon,
+        &:hover path {
+            transition: all 1s $ease;
+            fill: #FF4136;
+        }
+
+        &:hover .arrow {
+            animation: arrow-anim 2.5s $ease infinite;
+        }
+
+        &:hover .arrow-fixed {
+            animation: arrow-fixed-anim 2.5s $ease infinite;
+        }
+    }
+
+}
+
+@keyframes arrow-anim {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    5% {
+        transform: translateX(-0.1rem);
+    }
+
+    100% {
+        transform: translateX(1rem);
+        opacity: 0;
+    }
+}
+
+@keyframes arrow-fixed-anim {
+    5% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
