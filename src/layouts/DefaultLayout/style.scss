@@ -1,7 +1,6 @@
 :root {
     --font-family: 'Segoe UI';
     --text-color: black;
-    --header-height: 10rem;
     --footer-height: 50rem;
     --page-config: 0rem;
     --sidebar-width: 30rem;
@@ -34,8 +33,6 @@ a {
 }
 
 header {
-    background-color: #ccc;
-    border: 1px solid black;
     height: var(--header-height);
 
     position: fixed;
