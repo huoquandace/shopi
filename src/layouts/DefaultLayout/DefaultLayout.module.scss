@@ -1,0 +1,67 @@
+:root {
+    --HeaderHeight: 10rem;
+    --FooterHeight: 50rem;
+    --SidebarHeight: calc(100vh - var(--HeaderHeight));
+    --SidebarWidth: 30rem;
+}
+
+.App {
+    // display: flex;
+}
+
+.Header {
+    height: var(--HeaderHeight);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.Main {
+    margin-top: var(--HeaderHeight);
+
+    position: relative;
+
+    .Sidebar {
+        width: var(--SidebarWidth);
+        height: var(--SidebarHeight);
+
+        position: fixed;
+        top: var(--HeaderHeight);
+        bottom: 0;
+
+        transition: transform linear .2s;
+        transform: translateX(0);
+
+    }
+
+    .SidebarHide {
+        transform: translateX(-100%);
+    }
+
+    .SidebarShow {
+        transform: translateX(0);
+    }
+
+    .Content {
+        background-color: #999;
+        height: 2000px;
+        transition: all linear .2s;
+    }
+
+    .ContentExpand {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .ContentCollapse {
+        width: calc(100% - var(--SidebarWidth));
+        margin-left: var(--SidebarWidth);
+    }
+}
+
+.Footer {
+    height: var(--FooterHeight);
+}
