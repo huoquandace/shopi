@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react';
 
 import styles from './DefaultLayout.module.scss'
 
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
+import Content from "../components/Content";
+import Footer from "../components/Footer";
 
 export default function DefaultLayout({ children }) {
 
@@ -78,7 +79,7 @@ export default function DefaultLayout({ children }) {
             <Header className={styles.Header} />
             <main className={styles.Main} onClick={handelClick}>
                 <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')} />
-                <div className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</div>
+                <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
             </main>
             <Footer className={styles.Footer} />
         </div>

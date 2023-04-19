@@ -1,4 +1,7 @@
 :root {
+    --bg-primary: #999;
+    --border-color: #ccc;
+
     --HeaderHeight: 10rem;
     --FooterHeight: 50rem;
     --SidebarHeight: calc(100vh - var(--HeaderHeight));
@@ -46,7 +49,6 @@
     }
 
     .Content {
-        background-color: #999;
         height: 2000px;
         transition: all linear .2s;
     }
