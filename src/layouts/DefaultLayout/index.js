@@ -8,29 +8,35 @@ import Sidebar from "../components/Sidebar";
 
 export default function DefaultLayout({ children }) {
 
-    const [sidebarStatus, setSidebarStatus] = useState(true)
+    const [sidebarStatus, setSidebarStatus] = useState(true);
+    const [lastSidebarStatus, setLastSidebarStatus] = useState(true);
 
     useEffect(() => {
         var lastScrollTop = 0;
 
-        const handleScroll = event => {
-            console.log(sidebarStatus);
+        const is_numeric = str => /^\d+$/.test(str);
 
-            // collapseSidebarOnScrollToFooter
-            var st = document.documentElement.scrollTop;
-            if (st < lastScrollTop) {
-                if (document.documentElement.scrollTop + window.innerHeight < document.documentElement.offsetHeight - 100) {
-                    if (sidebarStatus) setSidebarStatus(true)
+        const getVar = variable => {
+            var value = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+            for (var i = 0; i < value.length; i++) {
+                if (!is_numeric(value.charAt(i))) {
+                    return parseInt(value.slice(0, -i - 1))
                 }
             }
-            else {
-                if (document.documentElement.scrollTop + window.innerHeight > document.documentElement.offsetHeight - 100) {
-                    setSidebarStatus(false)
-                }
+        };
+        
+        const collapseSidebarOnScrollToFooter = () => {
+            var st = document.documentElement.scrollTop;
+            var isToggle = document.documentElement.scrollTop + window.innerHeight < document.documentElement.offsetHeight - 100
+            if (st < lastScrollTop && isToggle && lastSidebarStatus) {
+                setSidebarStatus(true)
+            } else if (!isToggle && lastSidebarStatus) {
+                setSidebarStatus(false)
             }
             lastScrollTop = st;
+        }
 
-            // relativizeSidebarOnScrollToFooter
+        const relativizeSidebarOnScrollToFooter = () => {
             var sidebar = document.getElementsByClassName(styles.Sidebar).item(0)
             var footer = document.getElementsByClassName(styles.Footer).item(0)
             if (document.documentElement.scrollTop + window.innerHeight >= footer.offsetTop) {
@@ -40,6 +46,11 @@ export default function DefaultLayout({ children }) {
                 sidebar.style.position = 'fixed';
                 sidebar.style.top = `${getVar('--HeaderHeight')}rem`;
             }
+        }
+
+        const handleScroll = () => {
+            collapseSidebarOnScrollToFooter()
+            relativizeSidebarOnScrollToFooter()
         };
     
         window.addEventListener('scroll', handleScroll);
@@ -47,26 +58,19 @@ export default function DefaultLayout({ children }) {
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
-      }, []);
+      }, [lastSidebarStatus]);
     
-    function getVar(variable) {
-        var value = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
-        for (var i = 0; i < value.length; i++) {
-            if (!is_numeric(value.charAt(i))) {
-                return parseInt(value.slice(0, -i - 1))
-            }
-        }
-    };
     
-    function is_numeric(str) {
-        return /^\d+$/.test(str);
-
-    }
+    
+    
     
     const handelClick = event => {
-        console.log(sidebarStatus);
-        setSidebarStatus(sidebarStatus ? false : true)
-        console.log(sidebarStatus);
+        setSidebarStatus(!sidebarStatus)
+        setLastSidebarStatus(!(lastSidebarStatus))
+        // console.log(document.documentElement.scrollTop);
+        // console.log(window.innerHeight);
+        // console.log(document.documentElement.offsetHeight);
+        // console.log(getVar('--FooterHeight'));
     }
 
     return (
