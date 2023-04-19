@@ -76,15 +76,17 @@ export default function DefaultLayout({ children }) {
             <Header className={styles.Header} />
             <main className={styles.Main} onClick={handelClick}>
                 <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')}>
-                    {!sidebarStatus ? <div className={styles.SidebarShownerCtn}><div className={styles.SidebarShowner} onClick={handelClick}></div></div> : <></>}
+                    {
+                        !sidebarStatus ? 
+                        <div className={styles.SidebarShownerCtn}>
+                            <div className={styles.SidebarShowner} onClick={handelClick}>
+                                
+                            </div>
+                        </div> : <></>
+                    }
                 </Sidebar>
                 <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
-                {
-                    sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? 
-                        <div className={styles.Overlay} onClick={handelClick}>
-                            <div>123</div>
-                        </div> : <></>
-                }
+                {sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? <div className={styles.Overlay} onClick={handelClick}></div> : <></>}
             </main>
             <Footer className={styles.Footer} />
         </div>
