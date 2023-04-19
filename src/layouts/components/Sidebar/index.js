@@ -1,6 +1,6 @@
 import styles from './Sidebar.module.scss';
 
-export default function Sidebar({className}) {
+export default function Sidebar({children, className}) {
     return (
         <div className={[styles.Sidebar, className].join(' ')}>
             <div className={[].join(' ')}>
@@ -9,6 +9,7 @@ export default function Sidebar({className}) {
             <div className={[].join(' ')}>
 
             </div>
+            {children}
         </div>
     );
 }
