@@ -2,6 +2,9 @@
     border-right: solid 1px var(--border-color);
     background-color: #fff;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     
     .SidebarMenu {
         height: 100%;

@@ -16,8 +16,10 @@ export default function Sidebar({children, className}) {
                 <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
                 <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
             </ul>
-            <div className={[].join(' ')}>
-
+            <div className={[styles.SidebarHider].join(' ')}>
+                <ul className={styles.SidebarMenu}>
+                    <li className={styles.SidebarMenuItem}>Close</li>
+                </ul>
             </div>
             {children}
         </div>
