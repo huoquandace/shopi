@@ -32,7 +32,7 @@
         top: var(--HeaderHeight);
         bottom: 0;
 
-        transition: transform linear .2s;
+        transition: transform linear .1s;
         transform: translateX(0);
 
     }
@@ -47,7 +47,7 @@
 
     .Content {
         height: 2000px;
-        transition: all linear .2s;
+        transition: all linear .1s;
     }
 
     .ContentExpand {
