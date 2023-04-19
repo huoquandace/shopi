@@ -74,10 +74,11 @@ export default function DefaultLayout({ children }) {
     return (
         <div className={styles.App}>
             <Header className={styles.Header} />
-            <main className={styles.Main}>
+            <main className={styles.Main} onClick={handelClick}>
                 <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')} />
                 <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
                 {sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? <div className={styles.Overlay} onClick={handelClick}></div> : <></>}
+                {!sidebarStatus ? <div className={styles.SidebarShowner} onClick={handelClick}></div> : <></>}
             </main>
             <Footer className={styles.Footer} />
         </div>
