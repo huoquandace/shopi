@@ -82,7 +82,7 @@
     
             position: absolute;
             right: calc(0rem - var(--SidebarShownerSize));
-            top: calc(var(--SidebarHeight) - var(--SidebarShownerSize));
+            top: calc(0rem - var(--SidebarShownerSize));
         }
     }
 }
