@@ -62,6 +62,17 @@
         width: calc(100% - var(--SidebarWidth));
         margin-left: var(--SidebarWidth);
     }
+    
+    .Overlay {
+        width: calc(100% - var(--SidebarWidth));
+        height: 100%;
+        
+        position: absolute;
+        top: 0;
+        left: var(--SidebarWidth);
+
+        background-color: rgba(0, 0, 0, 0.2);
+    }
 }
 
 .Footer {

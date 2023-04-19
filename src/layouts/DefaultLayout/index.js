@@ -9,8 +9,13 @@ import Footer from "../components/Footer";
 
 export default function DefaultLayout({ children }) {
 
-    const [sidebarStatus, setSidebarStatus] = useState(true);
-    const [lastSidebarStatus, setLastSidebarStatus] = useState(true);
+    // const MOBILE_SCREEN_SIZE = 375
+    // const TABLET_SCREEN_SIZE = 768
+    const LAPTOP_SCREEN_SIZE = 1028
+    // const DESKTOP_SCREEN_SIZE = 1920
+
+    const [sidebarStatus, setSidebarStatus] = useState(window.innerWidth < LAPTOP_SCREEN_SIZE ? false : true);
+    const [lastSidebarStatus, setLastSidebarStatus] = useState(window.innerWidth < LAPTOP_SCREEN_SIZE ? false : true);
 
     useEffect(() => {
         var lastScrollTop = 0;
@@ -61,25 +66,18 @@ export default function DefaultLayout({ children }) {
         };
       }, [lastSidebarStatus]);
     
-    
-    
-    
-    
-    const handelClick = event => {
+    const handelClick = () => {
         setSidebarStatus(!sidebarStatus)
         setLastSidebarStatus(!(lastSidebarStatus))
-        // console.log(document.documentElement.scrollTop);
-        // console.log(window.innerHeight);
-        // console.log(document.documentElement.offsetHeight);
-        // console.log(getVar('--FooterHeight'));
     }
 
     return (
         <div className={styles.App}>
             <Header className={styles.Header} />
-            <main className={styles.Main} onClick={handelClick}>
+            <main className={styles.Main}>
                 <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')} />
                 <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
+                {sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? <div className={styles.Overlay} onClick={handelClick}></div> : <></>}
             </main>
             <Footer className={styles.Footer} />
         </div>
