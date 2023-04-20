@@ -1,24 +1,28 @@
 import styles from './Sidebar.module.scss';
 
-export default function Sidebar({children, className}) {
+export default function Sidebar({children, className, onClick}) {
     return (
         <div className={[styles.Sidebar, className].join(' ')}>
             <ul className={styles.SidebarMenu}>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
-                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor sit amet.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
+                <li className={styles.SidebarMenuItem}>Lorem ipsum dolor.</li>
             </ul>
-            <div className={[styles.SidebarHider].join(' ')}>
-                <ul className={styles.SidebarMenu}>
-                    <li className={styles.SidebarMenuItem}>Close</li>
+            <div className={[styles.SidebarHider].join(' ')} onClick={onClick}>
+                <ul className={''}>
+                    <li className={''}>Close</li>
                 </ul>
             </div>
             {children}

@@ -9,6 +9,20 @@
     --SidebarShownerSize: 5rem
 }
 
+body {
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #999;
+    }
+}
+
+.App {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+}
+
 .Header {
     height: var(--HeaderHeight);
 
@@ -79,6 +93,7 @@
             height: var(--SidebarShownerSize);
             
             border: 1px solid var(--border-color);
+            border-bottom: none;
     
             position: absolute;
             right: calc(0rem - var(--SidebarShownerSize));

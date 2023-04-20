@@ -74,8 +74,8 @@ export default function DefaultLayout({ children }) {
     return (
         <div className={styles.App}>
             <Header className={styles.Header} />
-            <main className={styles.Main} onClick={handelClick}>
-                <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')}>
+            <main className={styles.Main}>
+                <Sidebar className={[styles.Sidebar, sidebarStatus?styles.SidebarShow:styles.SidebarHide].join(' ')} onClick={handelClick}>
                     {
                         !sidebarStatus ? 
                         <div className={styles.SidebarShownerCtn}>
