@@ -3,6 +3,7 @@
     --border-color: #ccc;
 
     --HeaderHeight: 10rem;
+    --HeaderHeightMini: 5rem;
     --FooterHeight: 50rem;
     --SidebarHeight: calc(100vh - var(--HeaderHeight));
     --SidebarWidth: 30rem;
@@ -104,4 +105,9 @@ body {
 
 .Footer {
     height: var(--FooterHeight);
+}
+
+@media screen and (max-width: 768px) {
+    .Header {
+    }
 }

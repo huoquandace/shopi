@@ -1,4 +1,90 @@
 .Header {
   border-bottom: solid 1px var(--border-color);
   background-color: #fff;
+
+  display: flex;
+  justify-content: space-between;
+
+  .Logo {
+    display: flex;
+    width: var(--SidebarWidth);
+
+    img {
+      height: var(--HeaderHeight);
+    }
+
+    span {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: var(--HeaderHeight);
+    }
+
+    .DivideLine {
+      margin: auto 0 auto auto;
+      height: calc(var(--HeaderHeight) / 1.5);
+      border-left: 1px solid var(--border-color);
+    }
+  }
+
+  .Region {
+
+  }
+
+  .Language {
+
+  }
+  
+  .Search {
+    position: relative;
+    width: 50%;
+
+    input {
+      padding: 0 1rem;
+      margin-top: calc(var(--HeaderHeight) / 4);
+      height: calc(var(--HeaderHeight) / 2);
+      width: 100%;
+      font-size: 2rem;
+    }
+    
+    .SubmitBtn {
+      height: calc(var(--HeaderHeight) / 2);
+      width: 5rem;
+      margin-top: calc(var(--HeaderHeight) / 4);
+      position: absolute;
+      top: 0;
+      right: 0;
+      text-align: center;
+      border-left: 1px solid var(--border-color);
+      cursor: pointer;
+
+      svg {
+        height: calc(var(--HeaderHeight) / 2);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Logo {
+    width: auto !important;
+
+    img {
+    }
+
+    span {
+      display: none;
+    }
+    
+    .DivideLine {
+      display: none;
+    }
+  }
+
+  .Region {
+    display: none;
+  }
+
+  .Language {
+    display: none;
+  }
 }
