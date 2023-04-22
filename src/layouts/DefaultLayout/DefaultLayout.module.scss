@@ -93,12 +93,22 @@ body {
             width: var(--SidebarShownerSize);
             height: var(--SidebarShownerSize);
             
-            border: 1px solid var(--border-color);
-            border-bottom: none;
-    
             position: absolute;
             right: calc(0rem - var(--SidebarShownerSize));
             top: calc(0rem - var(--SidebarShownerSize));
+
+            cursor: pointer;
+
+            svg {
+                position: absolute;
+                top: -1rem;
+                left: .5rem;
+                width: 4rem;
+            }
+
+            &:hover svg{
+                fill:lightcoral;
+            }
         }
     }
 }

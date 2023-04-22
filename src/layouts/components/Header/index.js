@@ -4,7 +4,7 @@ export default function Header({className}) {
     return (
         <header className={[styles.Header, className].join(' ')}>
             <div className={styles.Logo}>
-                <img src='./logo.png' alt='logo'/>
+                <img src='./logo.svg' alt='logo'/>  
                 <span>Shopi</span>
                 <div className={styles.DivideLine}></div>
             </div>

@@ -8,12 +8,15 @@
   .Logo {
     display: flex;
     width: var(--SidebarWidth);
+    padding-left: 3rem;
     
     img {
-      height: var(--HeaderHeight);
+      margin-top: calc(var(--HeaderHeight) / 4);
+      height: calc(var(--HeaderHeight) / 2);
     }
 
     span {
+      margin-left: 3rem;
       font-size: 2.4rem;
       font-weight: 700;
       line-height: var(--HeaderHeight);
@@ -47,7 +50,7 @@
   
   .Language {
     flex-grow: 1;
-    margin: auto 1rem auto 0;
+    margin: auto 2rem auto 0;
     svg {
       width: 4rem;
     }
@@ -107,6 +110,7 @@
 @media screen and (max-width: 768px) {
   .Logo {
     width: auto !important;
+    padding-right: 3rem;
 
     img {
     }
