@@ -1,14 +1,14 @@
 .Header {
   border-bottom: solid 1px var(--border-color);
   background-color: #fff;
-
+  
   display: flex;
   justify-content: space-between;
-
+  
   .Logo {
     display: flex;
     width: var(--SidebarWidth);
-
+    
     img {
       height: var(--HeaderHeight);
     }
@@ -18,26 +18,46 @@
       font-weight: 700;
       line-height: var(--HeaderHeight);
     }
-
+    
     .DivideLine {
       margin: auto 0 auto auto;
       height: calc(var(--HeaderHeight) / 1.5);
       border-left: 1px solid var(--border-color);
     }
   }
-
+  
   .Region {
-
+    display: flex;
+    margin: auto 1rem;
+    flex-grow: 1;
+    svg {
+      width: 4rem;
+      height: var(--HeaderHeight);
+    }
+    
+    .Location {
+      width: 5rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-left: .3rem;
+      margin-top: calc(var(--HeaderHeight) / 3);
+    }
   }
-
+  
   .Language {
-
+    flex-grow: 1;
+    margin: auto 1rem auto 0;
+    svg {
+      width: 4rem;
+    }
   }
   
   .Search {
+    flex-grow: 50;
     position: relative;
     width: 50%;
-
+    
     input {
       padding: 0 1rem;
       margin-top: calc(var(--HeaderHeight) / 4);
@@ -56,10 +76,30 @@
       text-align: center;
       border-left: 1px solid var(--border-color);
       cursor: pointer;
-
+      
       svg {
         height: calc(var(--HeaderHeight) / 2);
       }
+    }
+  }
+  
+  .Action {
+    display: flex;
+    margin: 0 3rem;
+    margin-top: calc(var(--HeaderHeight) / 4);
+    
+    .ActionItem {
+      + .ActionItem {
+        margin-left: 3rem;
+      }
+    }
+    
+    svg {
+      width: 4rem;
+      height: calc(var(--HeaderHeight) / 2);
+    }
+
+    & {
     }
   }
 }
@@ -81,7 +121,7 @@
   }
 
   .Region {
-    display: none;
+    display: none !important;
   }
 
   .Language {
