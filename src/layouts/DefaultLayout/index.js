@@ -86,7 +86,6 @@ export default function DefaultLayout({ children }) {
                     }
                 </Sidebar>
                 <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>
-                    <div className={styles.TopMenu}></div>
                     <div className={styles.Container}>
                         {children}
                     </div>
