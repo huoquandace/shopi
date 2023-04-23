@@ -52,13 +52,13 @@
     }
 
     .ContentExpand {
-        margin-left: 0;
-        width: 100%;
+        width: 90%;
+        margin: 0 auto;
     }
-
+    
     .ContentCollapse {
-        width: calc(100% - var(--SidebarWidth));
-        margin-left: var(--SidebarWidth);
+        margin-left: calc(var(--SidebarWidth));
+        padding: 0 5%;
     }
     
     .Overlay {

@@ -85,7 +85,12 @@ export default function DefaultLayout({ children }) {
                         </div> : <></>
                     }
                 </Sidebar>
-                <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
+                <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>
+                    <div className={styles.TopMenu}></div>
+                    <div className={styles.Container}>
+                        {children}
+                    </div>
+                </Content>
                 {sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? <div className={styles.Overlay} onClick={handelClick}></div> : <></>}
             </main>
             <Footer className={styles.Footer} />

@@ -1,6 +1,11 @@
+import './styles.css'
 function Test() {
     return (
-        <h5>Test</h5>
+        <div className='boxctn'>
+            <div className="box">123</div>
+            <div className="box">123</div>
+            <div className="box">123</div>
+        </div>
     );
 }
 
