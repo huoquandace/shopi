@@ -21,6 +21,19 @@
       font-weight: 700;
       line-height: var(--HeaderHeight);
     }
+
+    a {
+      text-decoration: none;
+      margin-left: 3rem;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: var(--HeaderHeight);
+      color: #000;
+
+      &:hover {
+        color: lightcoral;
+      }
+    }
     
     .DivideLine {
       margin: auto 0 auto auto;

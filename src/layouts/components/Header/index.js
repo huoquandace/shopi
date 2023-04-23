@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 
 export default function Header({className}) {
@@ -5,7 +6,8 @@ export default function Header({className}) {
         <header className={[styles.Header, className].join(' ')}>
             <div className={styles.Logo}>
                 <img src='./logo.svg' alt='logo'/>  
-                <span>Shopi</span>
+                <Link to='/'>Shopi</Link>
+                {/* <span>Shopi</span> */}
                 <div className={styles.DivideLine}></div>
             </div>
             <div className={styles.Region}>
