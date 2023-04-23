@@ -86,7 +86,6 @@ export default function DefaultLayout({ children }) {
                     }
                 </Sidebar>
                 <Content className={[styles.Content, sidebarStatus?styles.ContentCollapse:styles.ContentExpand].join(' ')}>{children}</Content>
-                {console.log(children)}
                 {sidebarStatus && window.innerWidth < LAPTOP_SCREEN_SIZE ? <div className={styles.Overlay} onClick={handelClick}></div> : <></>}
             </main>
             <Footer className={styles.Footer} />
